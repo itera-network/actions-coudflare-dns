@@ -1,22 +1,14 @@
-name: "CloudFlare DNS Management"
-description: "Creates and updates  CloudFlare DNS records"
-author: "rez0n"
+name: "CloudFlare DNSLink"
+description: "Creates and updates  CloudFlare DNSLink"
+author: "Xuemomo"
 
 inputs:
-  type:
-    description: 'DNS record type, e.g. "A", "CNAME", etc.'
+  domain:
+    description: 'domin'
     required: true
-  name:
-    description: 'DNS record name, e.g. "{PR_NUMBER}.example.com"'
+  cid:
+    description: 'Ipfs cid'
     required: true
-  content:
-    description: 'DNS record content, e.g. "127.0.0.1"'
-  ttl:
-    description: "Time to live for DNS record. Value of 1 is 'automatic'"
-    default: 1
-  proxied:
-    description: "Whether the record is receiving the performance and security benefits of Cloudflare"
-    default: true
   token:
     description: "CloudFlare API token"
     required: true
