@@ -3,11 +3,11 @@ description: "Creates and updates  CloudFlare DNSLink"
 author: "Xuemomo"
 
 inputs:
-  domain:
-    description: 'domin'
+  name:
+    description: 'dnslink domain example: cc.hh.com'
     required: true
   cid:
-    description: 'Ipfs cid'
+    description: 'Ipfs CIDv0'
     required: true
   token:
     description: "CloudFlare API token"

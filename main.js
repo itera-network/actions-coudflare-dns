@@ -26,7 +26,7 @@ const getCurrentRecordId = () => {
   }
 
   const name = process.env.INPUT_NAME;
-  const record = result.find((x) => x.name === name);
+  const record = result.find((x) => x.name === `_dnslink.${name}`);
 
   if (!record) {
     return null
@@ -43,9 +43,9 @@ const createRecord = () => {
     ...["--header", "Content-Type: application/json"],
     ...["--silent", "--data"],
     JSON.stringify({
-      type: process.env.INPUT_TYPE,
-      name: process.env.INPUT_NAME,
-      content: process.env.INPUT_CONTENT,
+      type: 'TXT',
+      name: `_dnslink.${process.env.INPUT_NAME}`,
+      content: `dnslink=/ipfs/${process.env.INPUT_CID}`,
     }),
     `https://api.cloudflare.com/client/v4/zones/${process.env.INPUT_ZONE}/dns_records`,
   ]);
@@ -74,9 +74,9 @@ const updateRecord = (id) => {
     ...["--header", "Content-Type: application/json"],
     ...["--silent", "--data"],
     JSON.stringify({
-      type: process.env.INPUT_TYPE,
-      name: process.env.INPUT_NAME,
-      content: process.env.INPUT_CONTENT,
+      type: 'TXT',
+      name: `_dnslink.${process.env.INPUT_NAME}`,
+      content: `dnslink=/ipfs/${process.env.INPUT_CID}`,
     }),
     `https://api.cloudflare.com/client/v4/zones/${process.env.INPUT_ZONE}/dns_records/${id}`,
   ]);

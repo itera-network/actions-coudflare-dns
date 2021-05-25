@@ -1,6 +1,6 @@
-# Create DNS Record Action for GitHub
+# Create or update DNSLink Action for GitHub
 
-Creates a new CloudFlare DNS record.
+Creates or update CloudFlare dnslink.
 
 ## Usage via Github Actions
 
@@ -17,11 +17,8 @@ jobs:
     steps:
       - uses: rez0n/create-dns-record@v2.1
         with:
-          type: "A"
           name: "review.example.com"
-          content: "8.8.8.8"
-          ttl: 1
-          proxied: true
+          cid: "Qmaosiodjjkfjaklsjdkjklfjklajskjdklf"
           token: ${{ secrets.CLOUDFLARE_TOKEN }}
           zone: ${{ secrets.CLOUDFLARE_ZONE }}
 ```
