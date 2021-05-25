@@ -46,8 +46,6 @@ const createRecord = () => {
       type: process.env.INPUT_TYPE,
       name: process.env.INPUT_NAME,
       content: process.env.INPUT_CONTENT,
-      ttl: Number(process.env.INPUT_TTL),
-      proxied: Boolean(process.env.INPUT_PROXIED),
     }),
     `https://api.cloudflare.com/client/v4/zones/${process.env.INPUT_ZONE}/dns_records`,
   ]);
@@ -79,8 +77,6 @@ const updateRecord = (id) => {
       type: process.env.INPUT_TYPE,
       name: process.env.INPUT_NAME,
       content: process.env.INPUT_CONTENT,
-      ttl: Number(process.env.INPUT_TTL),
-      proxied: Boolean(process.env.INPUT_PROXIED),
     }),
     `https://api.cloudflare.com/client/v4/zones/${process.env.INPUT_ZONE}/dns_records/${id}`,
   ]);
