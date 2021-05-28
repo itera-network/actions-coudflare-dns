@@ -1,5 +1,5 @@
 name: "CloudFlare DNSLink"
-description: "Creates and updates  CloudFlare DNSLink"
+description: "Creates or updates  CloudFlare DNSLink"
 author: "Xuemomo"
 
 inputs:

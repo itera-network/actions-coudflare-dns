@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: rez0n/create-dns-record@v2.1
+      - uses: XueMoMo/actions-coudflare-dns@v1.0.1
         with:
           name: "review.example.com"
           cid: "Qmaosiodjjkfjaklsjdkjklfjklajskjdklf"
