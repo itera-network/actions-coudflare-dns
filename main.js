@@ -11,7 +11,7 @@ const getCurrentRecordId = () => {
   const { status, stdout } = cp.spawnSync("curl", [
     ...["--header", `Authorization: Bearer ${process.env.INPUT_TOKEN}`],
     ...["--header", "Content-Type: application/json"],
-    `https://api.cloudflare.com/client/v4/zones/${process.env.INPUT_ZONE}/dns_records`,
+    `https://api.cloudflare.com/client/v4/zones/${process.env.INPUT_ZONE}/dns_records?name=_dnslink.${process.env.INPUT_NAME}`,
   ]);
 
   if (status !== 0) {
@@ -25,14 +25,10 @@ const getCurrentRecordId = () => {
     process.exit(1);
   }
 
-  const name = process.env.INPUT_NAME;
-  const record = result.find((x) => x.name === `_dnslink.${name}`);
-
-  if (!record) {
-    return null
+  if(result.length > 0){
+    return result[0].id
   }
-
-  return record.id;
+  return null
 };
 
 const createRecord = () => {
