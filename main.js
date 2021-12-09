@@ -122,11 +122,11 @@ if (process.env.INPUT_CID) {
     console.log(`::set-output name=txt_record_name::${result.name}`);
   }
 }
-if (process.env.INPUT_CNAME) {
+if (process.env.INPUT_GATEWAY) {
   const newRecord = {
     type: "CNAME",
     name: process.env.INPUT_NAME,
-    content: process.env.INPUT_CNAME
+    content: process.env.INPUT_GATEWAY
   }
   const oldRecord = findRecord({
     type: newRecord.type,
