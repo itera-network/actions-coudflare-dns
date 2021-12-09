@@ -1,14 +1,17 @@
-name: "CloudFlare DNSLink"
-description: "Creates or updates  CloudFlare DNSLink"
-author: "Xuemomo"
+name: "CloudFlare DNSLink+"
+description: "Create or update CloudFlare DNSLink and gateway"
+author: "itera.one"
 
 inputs:
   name:
-    description: 'dnslink domain example: cc.hh.com'
+    description: 'dnslink domain, e.q. my-awesome-website.itera.one'
     required: true
   cid:
     description: 'Ipfs CIDv0'
     required: true
+  cname:
+    description: 'Ipfs gateway'
+    required: false
   token:
     description: "CloudFlare API token"
     required: true
@@ -16,10 +19,14 @@ inputs:
     default: "CloudFlare zone"
     required: true
 outputs:
-  record_id:
-    description: "Record ID"
-  name:
-    description: 'Affected domain name'
+  txt_record_id:
+    description: "TXT record ID"
+  txt_record_name:
+    description: 'TXT affected domain name'
+  cname_record_id:
+    description: 'CNAME record ID'
+  cname_record_name:
+    description: 'CNAME affected domain name'
 runs:
   using: "node12"
   main: "main.js"
