@@ -1,6 +1,6 @@
 # Create or update DNSLink Action for GitHub
 
-Create or update CloudFlare dnslink and gateway.
+Create or update CloudFlare dnslink and gateway record.
 
 ## Usage via Github Actions
 
@@ -15,8 +15,8 @@ jobs:
       - uses: itera-network/actions-coudflare-dns@master
         with:
           name: "review.example.com"
-          cid: "Qmaosiodjjkfjaklsjdkjklfjklajskjdklf" # cid will update txt record
-          cname: "cloudflare-ipfs.com" # cname will update cname record
+          cid: "Qmaosiodjjkfjaklsjdkjklfjklajskjdklf" # optional, it will update txt record
+          gateway: "cloudflare-ipfs.com" # optional, the domain of gateway, it will update cname record
           token: ${{ secrets.CF_API_TOKEN }}
           zone: ${{ secrets.CF_ZONE_ID }}
 ```
