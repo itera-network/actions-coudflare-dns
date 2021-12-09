@@ -9,8 +9,8 @@ inputs:
   cid:
     description: 'Ipfs CIDv0'
     required: true
-  cname:
-    description: 'Ipfs gateway'
+  gateway:
+    description: 'Ipfs gateway domain'
     required: false
   token:
     description: "CloudFlare API token"
