@@ -1,26 +1,24 @@
 # Create or update DNSLink Action for GitHub
 
-Creates or update CloudFlare dnslink.
+Create or update CloudFlare dnslink.
 
 ## Usage via Github Actions
 
-Add [CLOUDFLARE_TOKEN](https://developers.cloudflare.com/api/tokens/create) and CLOUDFLARE_ZONE to the [repository secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
+Add [CF_API_TOKEN](https://developers.cloudflare.com/api/tokens/create) and CF_ZONE_ID to the [repository secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 
 ```yaml
-name: example
-on:
-  pull_request:
-    type: [opened, reopened]
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: XueMoMo/actions-coudflare-dns@v1.0.1
+      - uses: itera-network/actions-coudflare-dns@master
         with:
           name: "review.example.com"
-          cid: "Qmaosiodjjkfjaklsjdkjklfjklajskjdklf"
-          token: ${{ secrets.CLOUDFLARE_TOKEN }}
-          zone: ${{ secrets.CLOUDFLARE_ZONE }}
+          cid: "Qmaosiodjjkfjaklsjdkjklfjklajskjdklf" # cid will update txt record
+          cname: "cloudflare-ipfs.com" # cname will update cname record
+          token: ${{ secrets.CF_API_TOKEN }}
+          zone: ${{ secrets.CF_ZONE_ID }}
 ```
 **Use full qualified domain name to update if it exist**
 
