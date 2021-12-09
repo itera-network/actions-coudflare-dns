@@ -132,7 +132,7 @@ if (process.env.INPUT_GATEWAY) {
     type: newRecord.type,
     name: newRecord.name
   });
-  if (oldARecord) {
+  if (oldRecord) {
     const result = updateRecord(oldRecord.id, newRecord);
     console.log(`::set-output name=cname_record_id::${result.id}`);
     console.log(`::set-output name=cname_record_name::${result.name}`);
