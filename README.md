@@ -1,6 +1,6 @@
 # Create or update DNSLink Action for GitHub
 
-Create or update CloudFlare dnslink.
+Create or update CloudFlare dnslink and gateway.
 
 ## Usage via Github Actions
 
